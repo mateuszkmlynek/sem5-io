@@ -1,0 +1,576 @@
+/* --- Zmienne kolorów (Motyw Jasny - domyślny) --- */
+:root {
+  --bg-color: #f3f4f6;
+  --text-color: #111827;
+  --text-muted: #6b7280;
+
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --accent-purple: #7e22ce;
+
+  --table-header-bg: #f9fafb;
+  --table-border: #f3f4f6;
+  --table-hover: #f9fafb;
+}
+
+/* --- Motyw Ciemny (Klasa .dark-theme) --- */
+.dark-theme {
+  --bg-color: #0f172a;
+  --text-color: #f3f4f6;
+  --text-muted: #94a3b8;
+
+  --card-bg: #1e293b;
+  --card-border: #334155;
+
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+
+  --table-header-bg: #1e293b;
+  --table-border: #334155;
+  --table-hover: #263345;
+}
+
+/* --- Reset i Podstawy --- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Nawigacja --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-icon {
+  background-color: var(--primary);
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+}
+.logo-section h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.logo-section span {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 8px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.icon-btn:hover {
+  background-color: var(--table-border);
+}
+.calendar-icon {
+  color: var(--primary);
+}
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  background-color: #e0e7ff;
+  color: #3730a3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.dark-theme .user-avatar {
+  background-color: #312e81;
+  color: #e0e7ff;
+}
+
+/* --- Układ Główny --- */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Dashboard - Górne Karty */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+.value {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+.highlight {
+  color: var(--primary);
+}
+.subtext {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Karta Płatności (Kolorowa) */
+.payment-card {
+  background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+  color: white;
+  border: none;
+}
+.payment-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+.payment-card h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0 0 0;
+}
+.big-price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+.due-date {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* --- Podział Kolumn --- */
+.content-split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .content-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- Tabela --- */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 1rem;
+}
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+.sub-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.sub-table th {
+  text-align: left;
+  padding: 1rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  background-color: var(--table-header-bg);
+}
+.sub-table td {
+  padding: 1rem;
+  border-top: 1px solid var(--table-border);
+}
+.sub-table tr:hover {
+  background-color: var(--table-hover);
+}
+
+.badge {
+  background-color: #e0e7ff;
+  color: #4338ca;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.dark-theme .badge {
+  background-color: #312e81;
+  color: #c7d2fe;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.font-bold {
+  font-weight: 600;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ef4444;
+  padding: 6px;
+  border-radius: 6px;
+}
+.btn-delete:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* --- Formularz --- */
+.add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.add-form input,
+.add-form select {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  outline: none;
+}
+.add-form input:focus,
+.add-form select:focus {
+  border-color: var(--primary);
+}
+.btn-primary {
+  grid-column: span 2;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* --- Wykresy i Ustawienia --- */
+.chart-wrapper {
+  height: 250px;
+  width: 100%;
+}
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: var(--table-header-bg);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+.toggle-switch {
+  width: 40px;
+  height: 20px;
+  background-color: #10b981;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+.error-message {
+  grid-column: span 2; /* Zajmuje całą szerokość formularza */
+  background-color: #fee2e2;
+  color: #ef4444;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border: 1px solid #fecaca;
+}
+
+/* W trybie ciemnym błąd powinien być ciemniejszy, ale wciąż czerwony */
+.dark-theme .error-message {
+  background-color: #450a0a;
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+/* Widok Kalendarza */
+.calendar-view-container {
+  padding: 1rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 0.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.calendar-nav-btn:hover {
+  background-color: var(--table-border);
+}
+
+.calendar-month-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding: 0.5rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  min-height: 60px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--card-bg);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.calendar-day.empty {
+  border: none;
+  background: transparent;
+  cursor: default;
+}
+
+.calendar-day:hover:not(.empty) {
+  background-color: var(--table-hover);
+  border-color: var(--primary);
+}
+
+.calendar-day.today {
+  border-color: var(--primary);
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.calendar-day.today .day-number {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.calendar-day.has-payment {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.day-number {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.payment-indicator {
+  margin-top: 0.25rem;
+}
+
+.payment-count {
+  display: inline-block;
+  background-color: #10b981;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day:hover .payment-tooltip {
+  display: block;
+}
+
+.payment-tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 200px;
+  white-space: nowrap;
+}
+
+.payment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  gap: 1rem;
+}
+
+.payment-item:not(:last-child) {
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.payment-item strong {
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+.payment-item span {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--card-border);
+}
+
+.legend-color.today {
+  border-color: var(--primary);
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.legend-color.has-payment {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
